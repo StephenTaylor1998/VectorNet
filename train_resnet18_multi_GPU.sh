@@ -16,8 +16,9 @@
 #python train_imagenet.py -d fashion_mnist -a resnet50_tiny_c1 -b 128 -j 4 -c 10 -e ./data/dataset \
 #--resume ./data/checkpoint.pth.tar
 
-python train_imagenet.py -d fashion_mnist -a resnet50_tiny_c1 -b 128 -j 4 -c 10 -e ./data/dataset --epoch 650 \
---resume ./data/model_best.pth.tar
+python train_imagenet.py -d cifar10 -a densenet121 -b 128 -j 8 -c 10 ./data/dataset --epoch 90 \
+#--pretrained
+#--resume ./data/model_best.pth.tar
 #python train_imagenet.py -d fashion_mnist -a resnet50_tiny_c1 -b 128 -j 4 -c 10 -e ./data/dataset \
 #--resume ./data/checkpoint.pth.tar
 

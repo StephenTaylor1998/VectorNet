@@ -66,11 +66,11 @@ def main_worker(gpu, ngpus_per_node, args):
     # define loss function (criterion) and optimizer
     criterion = nn.CrossEntropyLoss().cuda(args.gpu)
 
-    # optimizer = torch.optim.SGD(model.parameters(), args.lr,
-    #                             momentum=args.momentum,
-    #                             weight_decay=args.weight_decay)
-    optimizer = torch.optim.Adam(model.parameters(), args.lr,
+    optimizer = torch.optim.SGD(model.parameters(), args.lr,
+                                momentum=args.momentum,
                                 weight_decay=args.weight_decay)
+    # optimizer = torch.optim.Adam(model.parameters(), args.lr,
+    #                             weight_decay=args.weight_decay)
 
     # optionally resume from a checkpoint
     if args.resume:
