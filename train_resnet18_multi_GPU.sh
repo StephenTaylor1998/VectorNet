@@ -13,7 +13,11 @@
 #python train_imagenet.py -d fashion_mnist -a resnet50_tiny_c1 -b 128 -j 4 -c 10 ./data/dataset \
 #--resume ./data/checkpoint.pth.tar --epoch 150
 
-python train_imagenet.py -d fashion_mnist -a resnet50_tiny_c1 -b 128 -j 4 -c 10 -e ./data/dataset \
---resume ./data/checkpoint.pth.tar
+#python train_imagenet.py -d fashion_mnist -a resnet50_tiny_c1 -b 128 -j 4 -c 10 -e ./data/dataset \
+#--resume ./data/checkpoint.pth.tar
 
+python train_imagenet.py -d fashion_mnist -a resnet50_tiny_c1 -b 128 -j 4 -c 10 -e ./data/dataset --epoch 650 \
+--resume ./data/model_best.pth.tar
+#python train_imagenet.py -d fashion_mnist -a resnet50_tiny_c1 -b 128 -j 4 -c 10 -e ./data/dataset \
+#--resume ./data/checkpoint.pth.tar
 
