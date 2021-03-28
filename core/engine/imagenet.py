@@ -11,7 +11,7 @@ from core import models
 from core.datasets.data_zoo import get_data_by_name
 from core.utils.copy_weights import copy_weights
 from core.utils.resume import resume_from_checkpoint
-from core.engine.base import validate, adjust_learning_rate, train, save_checkpoint
+from core.engine.base import validate, adjust_learning_rate, train, save_checkpoint, adjust_learning_rate_cifar
 
 best_acc1 = 0
 
@@ -38,7 +38,7 @@ def main_worker(gpu, ngpus_per_node, args):
         model = models.__dict__[args.arch](pretrained=True, num_classes=args.classes)
     else:
         print("=> creating model '{}'".format(args.arch))
-        model = models.__dict__[args.arch](pretrained=False, num_classes=args.classes)
+        model = models.__dict__[args.arch](num_classes=args.classes)
 
     if not torch.cuda.is_available():
         print('using CPU, this will be slow')
@@ -73,6 +73,7 @@ def main_worker(gpu, ngpus_per_node, args):
 
     # define loss function (criterion) and optimizer
     criterion = nn.CrossEntropyLoss().cuda(args.gpu)
+    # criterion = nn.MultiLabelSoftMarginLoss().cuda(args.gpu)
 
     optimizer = torch.optim.SGD(model.parameters(), args.lr,
                                 momentum=args.momentum,
@@ -127,7 +128,8 @@ def main_worker(gpu, ngpus_per_node, args):
     for epoch in range(args.start_epoch, args.epochs):
         if args.distributed:
             train_sampler.set_epoch(epoch)
-        adjust_learning_rate(optimizer, epoch, args)
+        # adjust_learning_rate(optimizer, epoch, args)
+        adjust_learning_rate_cifar(optimizer, epoch, args)
 
         # train for one epoch
         train(train_loader, model, criterion, optimizer, epoch, args)

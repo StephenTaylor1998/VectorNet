@@ -26,8 +26,8 @@ def copy_weights(arg, epoch):
     shutil.copyfile(os.path.join('./data', origin_checkpoint),
                     os.path.join(folder_path, new_checkpoint))
 
-    print("copy file from %s to %s" % (
-        os.path.join('./data', model_best_name),
-        os.path.join(folder_path, model_best_name)))
-    shutil.copyfile(os.path.join('./data', model_best_name),
-                    os.path.join(folder_path, model_best_name))
+    # print("copy file from %s to %s" % (
+    #     os.path.join('./data', model_best_name),
+    #     os.path.join(folder_path, model_best_name)))
+    # shutil.copyfile(os.path.join('./data', model_best_name),
+    #                 os.path.join(folder_path, model_best_name))

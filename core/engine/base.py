@@ -156,6 +156,18 @@ def adjust_learning_rate(optimizer, epoch, args):
     for param_group in optimizer.param_groups:
         param_group['lr'] = lr
 
+def adjust_learning_rate_cifar(optimizer, epoch, args):
+    if epoch < 150:
+        lr = args.lr
+    elif epoch < 250:
+        lr = args.lr * 0.1
+    elif epoch < 350:
+        lr = args.lr * 0.01
+    else:
+        lr = args.lr * 0.001
+    for param_group in optimizer.param_groups:
+        param_group['lr'] = lr
+
 
 def accuracy(output, target, topk=(1,)):
     """Computes the accuracy over the k top predictions for the specified values of k"""
