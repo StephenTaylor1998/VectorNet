@@ -244,9 +244,9 @@ def _resnet(
     return model
 
 
-def resnet18(pretrained: bool = False, in_channels: int = 3, progress: bool = True, **kwargs: Any) -> ResNetM:
-    return _resnet('resnet18', in_channels, BasicBlock, [2, 2, 2, 2], [64, 128, 256, 512], pretrained, progress,
-                   **kwargs)
+# def resnet18(pretrained: bool = False, in_channels: int = 3, progress: bool = True, **kwargs: Any) -> ResNetM:
+#     return _resnet('resnet18', in_channels, BasicBlock, [2, 2, 2, 2], [64, 128, 256, 512], pretrained, progress,
+#                    **kwargs)
 
 
 def resnet18_tiny(pretrained: bool = False, in_channels: int = 3, progress: bool = True, **kwargs: Any) -> ResNetM:

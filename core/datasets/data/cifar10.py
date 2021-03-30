@@ -1,6 +1,5 @@
 from torchvision import datasets
 from torchvision.transforms import transforms
-from core.datasets.transformer.custom_transform import *
 
 cifar_normalize = transforms.Normalize(mean=[0.4914, 0.4822, 0.4465],
                                  std=[0.2023, 0.1994, 0.2010])

@@ -33,9 +33,18 @@
 #--resume ./data/checkpoint.pth.tar --weight-decay 5e-4
 
 
-python train_imagenet.py -d cifar10 -a resnet18_cifar -b 512 -j 32 -c 10 --epoch 400 --dist-url 'tcp://127.0.0.1:8889' \
---dist-backend 'nccl' --multiprocessing-distributed --world-size 1 --rank 0 ./data/dataset --weight-decay 5e-4
+#python train_imagenet.py -d cifar10 -a resnet18_cifar -b 512 -j 32 -c 10 --epoch 400 --dist-url 'tcp://127.0.0.1:8889' \
+#--dist-backend 'nccl' --multiprocessing-distributed --world-size 1 --rank 0 ./data/dataset --weight-decay 5e-4
 #--resume ./data/checkpoint.pth.tar
+
+#python train_imagenet.py -d cifar10 -a resnet18_cifar -b 512 -j 32 -c 10 --epoch 400 -e --dist-url 'tcp://127.0.0.1:8889' \
+#--dist-backend 'nccl' --multiprocessing-distributed --world-size 1 --rank 0 ./data/dataset --weight-decay 5e-4 \
+#--resume ./data/model_best.pth.tar
+#--resume ./data/checkpoint.pth.tar
+
+python train_imagenet.py -d cifar10 -a resnet18_cifar -b 512 -j 32 -c 10 --epoch 400 --dist-url 'tcp://127.0.0.1:8889' \
+--dist-backend 'nccl' --multiprocessing-distributed --world-size 1 --rank 0 ./data/dataset --weight-decay 5e-4 \
+#--resume ./data/model_best.pth.tar
 
 
 #python train_imagenet.py -d cifar10 -a resnet50 -b 640 -j 32 -c 10 --epoch 400 \
