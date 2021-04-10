@@ -1,7 +1,7 @@
 from efficientnet_pytorch import EfficientNet
 
 __all__ = ['__down_load_weight__', 'b0', 'b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7',
-           'b0_c1', 'b1_c1', 'b2_c1', 'b3_c1', 'b4_c1', 'b5_c1', 'b6_c1', 'b7_c1']
+           'b0_n_channel', 'b1_c1', 'b2_c1', 'b3_c1', 'b4_c1', 'b5_c1', 'b6_c1', 'b7_c1']
 
 
 def __down_load_weight__():
@@ -72,60 +72,67 @@ def b7(pretrained=True, num_classes=1000, **kwargs):
         return EfficientNet.from_name('efficientnet-b7', num_classes=num_classes, **kwargs)
 
 
-def b0_c1(pretrained=True, num_classes=1000, **kwargs):
+def b0_n_channel(pretrained=True, num_classes=1000, **kwargs):
     if pretrained:
         return EfficientNet.from_pretrained('efficientnet-b0', num_classes=num_classes, in_channels=1, **kwargs)
     else:
         return EfficientNet.from_name('efficientnet-b0', num_classes=num_classes, in_channels=1, **kwargs)
 
 
-def b1_c1(pretrained=True, num_classes=1000, **kwargs):
+def b1_c1(pretrained=True, num_classes=1000, in_channels=1, **kwargs):
     if pretrained:
-        return EfficientNet.from_pretrained('efficientnet-b1', num_classes=num_classes, in_channels=1, **kwargs)
+        return EfficientNet.from_pretrained(
+            'efficientnet-b1', num_classes=num_classes, in_channels=in_channels, **kwargs)
     else:
-        return EfficientNet.from_name('efficientnet-b1', num_classes=num_classes, in_channels=1, **kwargs)
+        return EfficientNet.from_name('efficientnet-b1', num_classes=num_classes, in_channels=in_channels, **kwargs)
 
 
-def b2_c1(pretrained=True, num_classes=1000, **kwargs):
+def b2_c1(pretrained=True, num_classes=1000, in_channels=1, **kwargs):
     if pretrained:
-        return EfficientNet.from_pretrained('efficientnet-b2', num_classes=num_classes, in_channels=1, **kwargs)
+        return EfficientNet.from_pretrained(
+            'efficientnet-b2', num_classes=num_classes, in_channels=in_channels, **kwargs)
     else:
-        return EfficientNet.from_name('efficientnet-b2', num_classes=num_classes, in_channels=1, **kwargs)
+        return EfficientNet.from_name('efficientnet-b2', num_classes=num_classes, in_channels=in_channels, **kwargs)
 
 
-def b3_c1(pretrained=True, num_classes=1000, **kwargs):
+def b3_c1(pretrained=True, num_classes=1000, in_channels=1, **kwargs):
     if pretrained:
-        return EfficientNet.from_pretrained('efficientnet-b3', num_classes=num_classes, in_channels=1, **kwargs)
+        return EfficientNet.from_pretrained(
+            'efficientnet-b3', num_classes=num_classes, in_channels=in_channels, **kwargs)
     else:
-        return EfficientNet.from_name('efficientnet-b3', num_classes=num_classes, in_channels=1, **kwargs)
+        return EfficientNet.from_name('efficientnet-b3', num_classes=num_classes, in_channels=in_channels, **kwargs)
 
 
-def b4_c1(pretrained=True, num_classes=1000, **kwargs):
+def b4_c1(pretrained=True, num_classes=1000, in_channels=1, **kwargs):
     if pretrained:
-        return EfficientNet.from_pretrained('efficientnet-b4', num_classes=num_classes, in_channels=1, **kwargs)
+        return EfficientNet.from_pretrained(
+            'efficientnet-b4', num_classes=num_classes, in_channels=in_channels, **kwargs)
     else:
-        return EfficientNet.from_name('efficientnet-b4', num_classes=num_classes, in_channels=1, **kwargs)
+        return EfficientNet.from_name('efficientnet-b4', num_classes=num_classes, in_channels=in_channels, **kwargs)
 
 
-def b5_c1(pretrained=True, num_classes=1000, **kwargs):
+def b5_c1(pretrained=True, num_classes=1000, in_channels=1, **kwargs):
     if pretrained:
-        return EfficientNet.from_pretrained('efficientnet-b5', num_classes=num_classes, in_channels=1, **kwargs)
+        return EfficientNet.from_pretrained(
+            'efficientnet-b5', num_classes=num_classes, in_channels=in_channels, **kwargs)
     else:
-        return EfficientNet.from_name('efficientnet-b5', num_classes=num_classes, in_channels=1, **kwargs)
+        return EfficientNet.from_name('efficientnet-b5', num_classes=num_classes, in_channels=in_channels, **kwargs)
 
 
-def b6_c1(pretrained=True, num_classes=1000, **kwargs):
+def b6_c1(pretrained=True, num_classes=1000, in_channels=1, **kwargs):
     if pretrained:
-        return EfficientNet.from_pretrained('efficientnet-b6', num_classes=num_classes, in_channels=1, **kwargs)
+        return EfficientNet.from_pretrained(
+            'efficientnet-b6', num_classes=num_classes, in_channels=in_channels, **kwargs)
     else:
-        return EfficientNet.from_name('efficientnet-b6', num_classes=num_classes, in_channels=1, **kwargs)
+        return EfficientNet.from_name('efficientnet-b6', num_classes=num_classes, in_channels=in_channels, **kwargs)
 
 
-def b7_c1(pretrained=True, num_classes=1000, **kwargs):
+def b7_c1(pretrained=True, num_classes=1000, in_channels=1, **kwargs):
     if pretrained:
-        return EfficientNet.from_pretrained('efficientnet-b7', num_classes=num_classes, in_channels=1, **kwargs)
+        return EfficientNet.from_pretrained(
+            'efficientnet-b7', num_classes=num_classes, in_channels=in_channels, **kwargs)
     else:
-        return EfficientNet.from_name('efficientnet-b7', num_classes=num_classes, in_channels=1, **kwargs)
+        return EfficientNet.from_name('efficientnet-b7', num_classes=num_classes, in_channels=in_channels, **kwargs)
 
 
 if __name__ == '__main__':
