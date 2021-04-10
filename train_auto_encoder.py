@@ -10,10 +10,7 @@ import torch.optim
 import torch.utils.data
 import torch.utils.data.distributed
 
-from core.datasets.data.image_folder import classify_dataset
-# from core.engine.classify import main_worker
-from core.engine.distributed_engine import main_worker
-from core.models.efficientnet import b7
+from core.engine.auto_encoder.engine import main_worker
 from core.utils.argparse import arg_parse
 
 parser = arg_parse()
@@ -42,18 +39,16 @@ def main():
     args.distributed = args.world_size > 1 or args.multiprocessing_distributed
 
     ngpus_per_node = torch.cuda.device_count()
-
-
-    model = b7()
-    model.cuda()
-
-    train_dataset = classify_dataset(os.path.join(args.data, 'train'))
-    val_dataset = classify_dataset(os.path.join(args.data, 'val'))
     if args.multiprocessing_distributed:
+        # Since we have ngpus_per_node processes per node, the total world_size
+        # needs to be adjusted accordingly
         args.world_size = ngpus_per_node * args.world_size
-        mp.spawn(main_worker, nprocs=ngpus_per_node, args=(ngpus_per_node, model, train_dataset, val_dataset, args))
+        # Use torch.multiprocessing.spawn to launch distributed processes: the
+        # main_worker process function
+        mp.spawn(main_worker, nprocs=ngpus_per_node, args=(ngpus_per_node, args))
     else:
-        main_worker(args.gpu, ngpus_per_node, model, train_dataset, val_dataset, args)
+        # Simply call main_worker function
+        main_worker(args.gpu, ngpus_per_node, args)
 
 
 if __name__ == '__main__':
