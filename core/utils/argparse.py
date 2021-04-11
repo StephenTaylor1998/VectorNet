@@ -12,7 +12,7 @@ def arg_parse():
     parser.add_argument('data', metavar='DIR',
                         help='path to dataset')
     parser.add_argument('-d', '--data_format', metavar='DATA_FORMAT', default='imagefolder',
-                        choices=['imagefolder', 'imagenet', 'cifar10', 'cifar100', 'mnist',
+                        choices=['image_folder', 'imagenet', 'cifar10', 'cifar100', 'mnist',
                                  'fashion_mnist'],
                         help='data format: (default: imagefolder)')
     parser.add_argument('-a', '--arch', metavar='ARCH', default='resnet18',

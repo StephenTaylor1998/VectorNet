@@ -15,34 +15,35 @@ def classify_dataset(data_dir, transform, not_strict=False):
     return datasets.ImageFolder(data_dir, transform)
 
 
-# # train dataset example for image-net
-# def classify_train_dataset(train_dir, transform=ImageNetTrainTransform):
-#     return datasets.ImageFolder(train_dir, transform)
+# train dataset example for image-net
+def classify_train_dataset(data_dir, transform=ImageNetTrainTransform):
+    return datasets.ImageFolder(data_dir, transform)
+
+
+# val dataset example for image-net
+def classify_val_dataset(data_dir, transform=ImageNetValidationTransform):
+    return datasets.ImageFolder(data_dir, transform)
+
+
+# test dataset example for image-net
+def classify_test_dataset(data_dir, transform=ImageNetTestTransform):
+    return datasets.ImageFolder(data_dir, transform)
+
+
+# # train dataset example for tiny-image-net
+# def classify_train_dataset(data_dir, transform=TinyImageNetTrainTransform, **kwargs):
+#     train_dir = os.path.join(data_dir, 'train')
+#     return datasets.ImageFolder(train_dir, transform, **kwargs)
 #
 #
-# # val dataset example for image-net
-# def classify_val_dataset(val_dir, transform=ImageNetValidationTransform):
-#     return datasets.ImageFolder(val_dir, transform)
+# # val dataset example for tiny-image-net
+# def classify_val_dataset(data_dir, transform=TinyImageNetvalidationTransform, **kwargs):
+#     val_dir = os.path.join(data_dir, 'val')
+#     return datasets.ImageFolder(val_dir, transform, **kwargs)
 #
 #
-# # test dataset example for image-net
-# def classify_test_dataset(testdir, transform=ImageNetTestTransform):
-#     return datasets.ImageFolder(testdir, transform)
-
-
-# train dataset example for tiny-image-net
-def classify_train_dataset(data_dir, transform=TinyImageNetTrainTransform, **kwargs):
-    train_dir = os.path.join(data_dir, 'train')
-    return datasets.ImageFolder(train_dir, transform, **kwargs)
-
-
-# val dataset example for tiny-image-net
-def classify_val_dataset(data_dir, transform=TinyImageNetvalidationTransform, **kwargs):
-    val_dir = os.path.join(data_dir, 'val')
-    return datasets.ImageFolder(val_dir, transform, **kwargs)
-
-
-# test dataset example for tiny-image-net
-def classify_test_dataset(data_dir, transform=TinyImageNetTestTransform, **kwargs):
-    test_dir = os.path.join(data_dir, 'test')
-    return datasets.ImageFolder(test_dir, transform, **kwargs)
+# # test dataset example for tiny-image-net
+# def classify_test_dataset(data_dir, transform=TinyImageNetTestTransform, **kwargs):
+#     # test_dir = os.path.join(data_dir, 'test')
+#     test_dir = os.path.join(data_dir, 'val')
+#     return datasets.ImageFolder(test_dir, transform, **kwargs)

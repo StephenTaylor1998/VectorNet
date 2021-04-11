@@ -108,9 +108,9 @@ def save_checkpoint(state, is_best, filename='data/checkpoint.pth.tar'):
         shutil.copyfile(filename, 'data/model_best.pth.tar')
 
 
-
 class AverageMeter(object):
     """Computes and stores the average and current value"""
+
     def __init__(self, name, fmt=':f'):
         self.name = name
         self.fmt = fmt
@@ -155,6 +155,7 @@ def adjust_learning_rate(optimizer, epoch, args):
     lr = args.lr * (0.1 ** (epoch // 30))
     for param_group in optimizer.param_groups:
         param_group['lr'] = lr
+
 
 def adjust_learning_rate_cifar(optimizer, epoch, args):
     if epoch < 150:
